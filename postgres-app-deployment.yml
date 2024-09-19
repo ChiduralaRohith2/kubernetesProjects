@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-app-deployment
+  labels:
+    name: postgres-app
+    author: rohit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: postgres-app
+  template:
+    metadata:
+      name: postgres-app-pod
+      labels:
+        name: postgres-app
+    spec:
+      containers:
+        - name: postgres-app
+          image: postgres
+...
